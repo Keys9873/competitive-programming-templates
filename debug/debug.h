@@ -339,7 +339,7 @@ void debug_out(string names, T first, U&&... rest) {
     cerr << format(first);
 
     if (sizeof...(rest) > 0) {
-        cerr << '\n';
+        cerr << ', ';
     }
 
     debug_out(names, rest...);
