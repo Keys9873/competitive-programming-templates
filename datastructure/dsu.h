@@ -7,6 +7,10 @@ struct dsu {
         return a[x] < 0 ? x : a[x] = find(a[x]);
     }
 
+    int size(int x) {
+        return -a[find(x)];
+    }
+
     bool unite(int x, int y) {
         x = find(x);
         y = find(y);
