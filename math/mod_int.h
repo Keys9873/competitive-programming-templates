@@ -9,7 +9,7 @@ struct mod_int {
         }
     }
  
-    friend mod_int pow(mod_int base, int exp) {
+    friend mod_int qp(mod_int base, int exp) {
         mod_int res = 1;
         while (exp) {
             if (exp & 1) {
@@ -19,6 +19,10 @@ struct mod_int {
             exp >>= 1;
         }
         return res;
+    }
+
+    friend mod_int inv(mod_int a) {
+        return qp(a, MOD - 2);
     }
  
     mod_int &operator+=(mod_int b) {
@@ -70,6 +74,14 @@ struct mod_int {
  
     friend ostream &operator<<(ostream &os, mod_int a) {
         return os << a.v;
+    }
+
+    friend bool operator==(mod_int a, mod_int b) {
+        return a.v == b.v;
+    }
+
+    friend bool operator!=(mod_int a, mod_int b) {
+        return a.v == b.v;
     }
 };
 
